@@ -1,2 +1,3 @@
 hello this is the 1st git file !!
 this file is named as a.txt
+another line added
