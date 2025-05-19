@@ -1,12 +1,12 @@
-name: Prin t sample text
-hosts: localhost
-tasks: 
-  - name: Prints a statement
-    ansible.builtin.debug:
-      msg:
-        - "Learning ansible for the first time"
+- name: Print sample text
+  hosts: localhost
+  tasks: 
+    - name: Prints a statement
+      ansible.builtin.debug:
+        msg:
+         "Learning ansible for the first time"
 
-  - name: Prints a statement
-    ansible.builtin.debug:
-      msg:
-        - "Ansible works on yml"
+    - name: Prints a statement
+      ansible.builtin.debug:
+        msg:
+         "Ansible works on yml"
