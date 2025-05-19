@@ -7,6 +7,6 @@
 
    - name: PRINT OUTPUT of previous task
      ansible.builtin.debug:
-     msg: "{{ OUTPUT.stdout }}"
+      msg: "{{ OUTPUT.stdout }}"
 
    
