@@ -23,7 +23,7 @@
 
 
 
-     
+    #  ansible-playbook -e "CustomVariable=My address is abc.com" vars.yml
 
      
 
