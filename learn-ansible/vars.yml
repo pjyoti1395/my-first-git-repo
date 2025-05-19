@@ -1,23 +1,29 @@
 - name: Print sample text
   hosts: localhost
   vars: 
-  	URL_PLAY: play.example.com       
+   URL_PLAY: play.example.com       
   tasks: 
-   	- name: Prints a statement
-      ansible.builtin.debug:
-        msg: URL_PLAY  - {{ URL_PLAY  }}        
+   - name: Prints a statement
+     ansible.builtin.debug:
+      msg: URL_PLAY  - {{ URL_PLAY  }}        
 
-    - name: Prints a statement
-      ansible.builtin.debug:
-        msg: URL_PLAY  - {{ URL_PLAY }}
+   - name: Prints a statement
+     ansible.builtin.debug:
+      msg: URL_PLAY  - {{ URL_PLAY }}
+    
+   - name: Local variable
+     vars: 
+        MyLocalVariable: LocalVar
+     ansible.builtin.debug:
+      msg: Task variable - {{ MyLocalVariable }}
 
-	  - name: Task variable		
-      ansible.builtin.debug:
-        msg: URL_TASK  - {{ URL_TASK }} 
-      vars:
-		    URL_TASK : mytask        
+   - name: Accessing local variable
+     ansible.builtin.debug:
+      msg: Task variable - {{ MyLocalVariable }}
 
-    - name: Prints a statement
-      ansible.builtin.debug:
-        msg: URL_PLAY  - {{ URL_TASK }}   
+
+
+     
+
+	   
 
