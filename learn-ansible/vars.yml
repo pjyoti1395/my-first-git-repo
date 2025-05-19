@@ -19,7 +19,7 @@
 
    - name: Accessing local variable
      ansible.builtin.debug:
-      msg: "Task variable - {{ MyLocalVariable }}"
+      msg: "{{ CustomVariable }}"
 
 
 
