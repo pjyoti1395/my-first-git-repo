@@ -1,0 +1,29 @@
+- name: Print sample text
+  hosts: localhost
+  vars: 
+   URL_PLAY: play.example.com       
+  tasks: 
+   - name: Prints a statement
+     ansible.builtin.debug:
+      msg: "URL_PLAY  - {{ URL_PLAY  }}"        
+
+   - name: Prints a statement
+     ansible.builtin.debug:
+      msg: "URL_PLAY  - {{ URL_PLAY }}"
+    
+   - name: Local variable
+     vars: 
+        MyLocalVariable: LocalVar
+     ansible.builtin.debug:
+      msg: "Task variable - {{ MyLocalVariable }}"
+
+   - name: Accessing local variable
+     ansible.builtin.debug:
+      msg: "{{ CustomVariable }}"
+
+
+
+    #  ansible-playbook -e "CustomVariable=My address is abc.com" vars.yml
+
+     
+
