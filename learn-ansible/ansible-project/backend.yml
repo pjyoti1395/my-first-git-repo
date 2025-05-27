@@ -57,11 +57,30 @@
        - cryptography
       executable: pip3.9
 
+   - name: Find backend.sql file
+     ansible.builtin.find:
+      paths: /           # You can narrow this if you know a likely folder
+      patterns: 'backend.sql'
+      recurse: yes
+
+
+   - name: Find the backend.sql file
+     ansible.builtin.find:
+      paths: /
+      patterns: 'backend.sql'
+      recurse: yes
+     register: found_files
+
+   - name: Show the full path of backend.sql file(s)
+     ansible.builtin.debug:
+      msg: "File found at: {{ item.path }}"
+     loop: "{{ found_files.files }}"
+
    - name: Load Schema
      community.mysql.mysql_db:
       state: import
       name: all
-      target: app/schema/backend.mysql
+      target: /app/schema/backend.mysql
       login_user: root
       login_password: ExpenseApp@1
       login_host: 172.31.81.123
