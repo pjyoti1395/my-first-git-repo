@@ -1,5 +1,5 @@
 - name: Frontend App
   hosts: all
   become: yes
-  tasks:
+  roles:
    - frontend
