@@ -59,23 +59,12 @@
 
   
 
-   - name: Find the backend.sql file
-     ansible.builtin.find:
-      paths: /
-      patterns: 'backend.mysql'
-      recurse: yes
-     register: found_files
-
-   - name: Show the full path of backend.sql file(s)
-     ansible.builtin.debug:
-      msg: "File found at: {{ item.path }}"
-     loop: "{{ found_files.files }}"
 
    - name: Load Schema
      community.mysql.mysql_db:
       state: import
       name: all
-      target: /app/schema/backend.mysql
+      target: schema/backend.mysql
       login_user: root
       login_password: ExpenseApp@1
       login_host: 172.31.81.123
