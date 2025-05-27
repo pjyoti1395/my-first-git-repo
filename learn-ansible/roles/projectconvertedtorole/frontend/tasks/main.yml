@@ -1,0 +1,37 @@
+- name: Install nginx
+  ansible.builtin.dnf:
+  name: nginx
+  state: latest
+
+- name: Copy Expense Nginx Configuration
+  ansible.builtin.copy:
+  src: expense.conf
+  dest: /etc/nginx/default.d/expense.conf
+
+  
+- name: Import Application tasks
+  ansible.builtin.import_role:
+  name: common
+  tasks_from: main.yml
+
+# - name: Clean the old content
+#   ansible.builtin.file:
+#   path: /usr/share/nginx/html
+#   state: absent
+
+# - name: Creating App directory
+#   ansible.builtin.file:
+#   path: /usr/share/nginx/html
+#   state: directory
+
+# - name: Downloading and extracting app content 
+#   ansible.builtin.unarchive:
+#   src: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
+#   dest: /usr/share/nginx/html
+#   remote_src: yes
+
+- name: Start nginx Service
+  ansible.builtin.systemd_service:
+  name: nginx
+  state: restarted
+  enabled: yes
