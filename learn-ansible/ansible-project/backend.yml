@@ -49,11 +49,11 @@
       state: installed
 
    - name: Install Python Mysql Client
-     ansible.builtin.pip:
+     community.builtin.pip:
       name:
        - PyMySQL
        - cryptography
-     executable: pip3.9
+      executable: pip3.9
 
    - name: Load Schema
      community.mysql.mysql_db:
