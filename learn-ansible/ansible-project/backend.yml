@@ -61,7 +61,7 @@
      community.mysql.mysql_db:
       state: import
       name: all
-      target: /app/schema/backend.mysql
+      target: app/schema/backend.mysql
       login_user: root
       login_password: ExpenseApp@1
       login_host: 172.31.81.123
