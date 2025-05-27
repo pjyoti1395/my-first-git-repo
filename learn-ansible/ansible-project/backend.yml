@@ -64,15 +64,8 @@
        - PyMySQL
        - cryptography
       executable: pip3.9
-    
-   - name: Find the backend.mysql file 
-     ansible.builtin.find:
-      paths: /          
-      patterns: 'backend.mysql'
-      recurse: yes
-     register: found_files
-
   
+
 
    - name: Load Schema using backend.sql file
      community.mysql.mysql_db:
