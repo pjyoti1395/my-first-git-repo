@@ -49,7 +49,7 @@
       state: installed
 
    - name: Install Python Mysql Client
-     community.builtin.pip:
+     ansible.builtin.pip:
       name:
        - PyMySQL
        - cryptography
