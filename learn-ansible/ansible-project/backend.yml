@@ -58,7 +58,17 @@
       executable: pip3.9
 
   
+   - name: Find the backend.mysql file
+     ansible.builtin.find:
+      paths: /
+      patterns: 'backend.mysql'
+      recurse: yes
+     register: found_files
 
+   - name: Show the full path of backend.mysql file(s)
+     ansible.builtin.debug:
+      msg: "File found at: {{ item.path }}"
+     loop: "{{ found_files.files }}"
 
    - name: Load Schema
      community.mysql.mysql_db:
