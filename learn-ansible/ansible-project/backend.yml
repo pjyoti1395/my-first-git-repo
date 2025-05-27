@@ -57,17 +57,12 @@
        - cryptography
       executable: pip3.9
 
-   - name: Find backend.sql file
-     ansible.builtin.find:
-      paths: /           # You can narrow this if you know a likely folder
-      patterns: 'backend.sql'
-      recurse: yes
-
+  
 
    - name: Find the backend.sql file
      ansible.builtin.find:
       paths: /
-      patterns: 'backend.sql'
+      patterns: 'backend.mysql'
       recurse: yes
      register: found_files
 
