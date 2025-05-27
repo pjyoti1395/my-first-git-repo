@@ -1,6 +1,8 @@
 - name: Backend App
   hosts: all
   become: yes
+  vars: 
+   ansible_python_interpreter: /usr/bin/python
   tasks:
    - name: Disable other versions of NodeJS
      ansible.builtin.shell: dnf module disable nodejs -y
@@ -61,6 +63,8 @@
       name: all
       target: /app/schema/backend.mysql
       login_user: root
+      login_password: ExpenseApp@1
+      login_host: 172.31.81.123
 
    - name: Start the backend service
      ansible.builtin.systemd_service:
