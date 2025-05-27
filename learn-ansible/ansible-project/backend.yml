@@ -72,27 +72,17 @@
       recurse: yes
      register: found_files
 
-   - name: Show the full path of backend.mysql file(s)
-     ansible.builtin.debug:
-      msg: "File found at: {{ item.path }}"
-      loop: "{{ found_files.files }}"
-     when: found_files.files | length > 0
+  
 
-   - name: Fail if backend.mysql is not found
-     ansible.builtin.fail:
-      msg: "backend.mysql file not found anywhere on the remote machine."
-     when: found_files.files | length == 0
-
-   - name: Load Schema using found backend.mysql file
+   - name: Load Schema using backend.sql file
      community.mysql.mysql_db:
       state: import
       name: all
-      target: "{{ found_files.files[0].path }}"
+      target: /app/schema/backend.sql
       login_user: root
       login_password: ExpenseApp@1
       login_host: 172.31.81.123
-     when: found_files.files | length > 0
-  
+
   
 
    - name: Start the backend service
