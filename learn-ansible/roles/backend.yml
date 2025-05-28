@@ -1,4 +1,4 @@
-- name: Frontend App
+- name: Backend App
   hosts: all
   become: yes
   vars:
