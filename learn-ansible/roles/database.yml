@@ -1,6 +1,8 @@
 - name: Database setup 
   hosts: all
   become: yes
+  vars_files:
+    vault.yml
   roles:
    - database
 
