@@ -5,3 +5,9 @@
    ansible_python_interpreter: /usr/bin/python
   roles:
    - backend
+
+
+   
+    #  To run a role 
+    # ansible-playbook -i 172.31.19.83, -e ansible_user=ec2-user -e ansible_password=DevOps321 frontend.yml
+      # 172.31.19.83 is the private ip address of the backend server
