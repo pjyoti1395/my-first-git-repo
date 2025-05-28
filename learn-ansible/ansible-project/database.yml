@@ -1,6 +1,8 @@
 - name: MySql server setup
   hosts: mysql
   become: yes
+  vars_files:
+   - vault.yml
   tasks: 
    - name: Install mysql
      ansible.builtin.dnf:

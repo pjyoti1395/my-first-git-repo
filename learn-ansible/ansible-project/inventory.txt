@@ -3,5 +3,5 @@
 172.31.81.123
 
 [mysql:vars]
-ansible_user=
-ansible_password=
+ansible_user= {{ username}}
+ansible_password= {{ password }}
