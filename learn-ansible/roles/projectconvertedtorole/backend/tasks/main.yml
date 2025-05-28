@@ -1,0 +1,85 @@
+ - name: Disable other versions of NodeJS
+   ansible.builtin.shell: dnf module disable nodejs -y
+
+ - name: Enable NodeJS module 20
+   ansible.builtin.shell: dnf module enable nodejs:20 -y
+
+ - name: Install nodeJS version 20
+   ansible.builtin.dnf: 
+    name: nodejs
+    state: installed
+
+ - name: Adding the application user
+   ansible.builtin.user:
+    name: expense
+
+ - name: Import Application tasks
+   ansible.builtin.import_role:
+    name: common
+    tasks_from: main.yml
+    
+#  - name: Clean the old content 
+#    ansible.builtin.file:
+#     path: /app
+#     state: absent
+
+#  - name: Create a new app directory
+#    ansible.builtin.file:
+#     path: /app
+#     state: directory
+
+#  - name: Download and Extract the app contents  
+#    ansible.builtin.unarchive:
+#     src: https://expense-artifacts.s3.amazonaws.com/expense-backend-v2.zip 
+#     dest: /app
+#     remote_src: yes
+
+ - name: List contents of /app after unzip
+   ansible.builtin.shell: ls -R /app
+   register: unzip_contents
+
+ - name: Show unzip contents
+   ansible.builtin.debug:
+    var: unzip_contents.stdout_lines
+
+ - name: Download NodeJS dependencies
+   community.general.npm:
+    path: /app
+    state: latest
+
+ - name: Copy Backend Service file 
+   ansible.builtin.copy:
+    src: backend.service
+    dest: /etc/systemd/system/backend.service
+
+ - name: Install MySql Client
+   ansible.builtin.dnf:
+    name: mysql
+    state: installed
+
+ - name: Install Python Mysql Client
+   ansible.builtin.pip:
+   name:
+    - PyMySQL
+    - cryptography
+   executable: pip3.9
+
+
+
+ - name: Load Schema using backend.sql file
+   community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /app/schema/backend.sql
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: 172.31.81.123
+
+
+
+ - name: Start the backend service
+   ansible.builtin.systemd_service:
+    name: backend
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
