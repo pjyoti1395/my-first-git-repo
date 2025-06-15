@@ -11,8 +11,8 @@ provider "aws" {
   region = "eu-central-1"
 }
 
-resource "aws_s3_bucket" "my_first_terraform_bucket" {
-  bucket = "my-tf-test-bucket"
+resource "aws_s3_bucket" "test" {
+  bucket = "my_first_terraform_bucket"
 
   tags = {
     Name        = "My bucket"
