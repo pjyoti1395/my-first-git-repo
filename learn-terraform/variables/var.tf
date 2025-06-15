@@ -32,5 +32,5 @@ output "ztoxvaluemapping" {
 }
 
 variable "env" {
-    value = "Stage"
+    default = "Stage"
 }
