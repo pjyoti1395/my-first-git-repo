@@ -28,5 +28,5 @@ output "y_1" {
 }
 
 output "ztoxvaluemapping" {
-    value = var.z[x]
+    value = var.z["x"]
 }
