@@ -30,3 +30,7 @@ output "y_1" {
 output "ztoxvaluemapping" {
     value = var.z["x"]
 }
+
+variable "env" {
+    value = "Stage"
+}
