@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "test" {
-  bucket = "my-first-terraform-bucket-1506"
+  bucket = var.name
 
   tags = {
     Name        = "My bucket"

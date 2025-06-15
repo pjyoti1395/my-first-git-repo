@@ -34,3 +34,7 @@ output "ztoxvaluemapping" {
 variable "env" {
     
 }
+
+variable "name" {
+    
+}
