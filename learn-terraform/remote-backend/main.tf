@@ -8,7 +8,7 @@ terraform {
 
 
     backend "s3"{ 
-        bucket = "Jyoti-buket-1606"
+        bucket = "my-terraform-bucket-jyoti-1995 "
         key = "jyoti/terraform/terraform.tfstate"
         region = "us-east-1"
         use_lockfile = true 
