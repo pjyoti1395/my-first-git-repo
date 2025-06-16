@@ -11,7 +11,7 @@ terraform {
         bucket = "Jyoti-buket-1606"
         key = "jyoti/terraform/terraform.tfstate"
         region = "us-east-1"
-        use_lockfile = true 
+         dynamodb_table = "terraform-locks"  
 
     }
 }
