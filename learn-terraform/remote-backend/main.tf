@@ -11,7 +11,7 @@ terraform {
         bucket = "my-terraform-bucket-jyoti-1995"
         key = "jyoti/terraform/terraform.tfstate"
         region = "us-east-1"
-        use_lockfile = true 
+       
 
     }
 }
