@@ -8,7 +8,7 @@ terraform {
 
 
     backend "s3"{ 
-        bucket = "Jyoti-bucket-1606"
+        bucket = "my-terraform-bucket-jyoti-1995"
         key = "jyoti/terraform/terraform.tfstate"
         region = "us-east-1"
          dynamodb_table = "terraform-locks"  
