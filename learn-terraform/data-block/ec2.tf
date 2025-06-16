@@ -3,11 +3,11 @@ data "aws_instance" "foo" {
 
   filter {
     name   = "image-id"
-    values = "ami-03ab4f7c25eca90dc"
+    values = ["ami-03ab4f7c25eca90dc"]
   }
 
   filter {
     name = "tag:Name"
-    values = "web"
+    values = ["web"]
   }
 }
