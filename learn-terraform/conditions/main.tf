@@ -1,5 +1,5 @@
 variable "environment" {
-    default = "dev"
+    default = "prod"
 }
 
 resource "aws_instance" "example" {
