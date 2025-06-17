@@ -4,7 +4,7 @@ variable "user_input"{
 }
 
 variable "instance_selected_by_user" {
-    description = "EC2 instance type"
+    description = "select your EC2 instance type"
     type = string 
     default = "t2.micro"
 }
