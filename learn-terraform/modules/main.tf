@@ -1,6 +1,6 @@
-module "demo"{
+module "demo-1"{
     source = "./my_first_module"
-    Name = "devops"
+    Name = "devops- 1"
     instance_type = "t2.micro"
     terraform = "true"
 }
@@ -8,7 +8,7 @@ module "demo"{
 
 module "demo-2"{
     source = "./my_first_module"
-    Name = "devops"
+    Name = "devops - 2"
     instance_type = "t2.micro"
     terraform = "true"
 }
