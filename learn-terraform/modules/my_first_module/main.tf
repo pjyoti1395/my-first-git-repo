@@ -11,4 +11,4 @@ resource "aws_instance" "test"{
 
 variable "instance_type" {}
 variable "Name" {}
-variable "terraform" 
+variable "terraform"  {}
