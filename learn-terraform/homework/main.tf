@@ -4,7 +4,7 @@ provider "aws" {
 
 
 locals {
-  actual_instance_type = var.instance_selected_by_user == "t2.micro" ? "t3.micro" : var.user_instance_type
+  actual_instance_type = var.instance_selected_by_user == "t2.micro" ? "t3.micro" : var.instance_selected_by_user
 }
 
 
