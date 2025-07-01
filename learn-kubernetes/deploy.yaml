@@ -34,10 +34,12 @@ metadata:
     app: nginx
   namespace: app-1
 spec:
-  type: LoadBalancer
+  #type: LoadBalancer
+  type: NodePort
   selector:
     app: nginx
   ports:
     - protocol: TCP
       port: 80
       targetPort: 9376
+      #nodePort: 30007
