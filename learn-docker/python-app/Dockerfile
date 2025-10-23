@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 #Eg of single staged application 
 
 # Use the official Python image from DockerHub
