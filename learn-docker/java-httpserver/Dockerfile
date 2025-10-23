@@ -8,5 +8,5 @@ RUN javac Main.java
 FROM openjdk:17-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/Main.class .
-EXPOSE 8080
+EXPOSE 8081
 CMD ["java", "Main"]
