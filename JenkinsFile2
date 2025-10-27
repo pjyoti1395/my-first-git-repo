@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building from DEVELOPMENT branch"
+                sh 'mvn clean install'
+            }
+        }
+        stage('Deploy to Staging') {
+            when {
+                expression { env.BRANCH_NAME == 'development' }
+            }
+            steps {
+                echo "Deploying to STAGING environment..."
+                sh './deploy-staging.sh'
+            }
+        }
+    }
+}
