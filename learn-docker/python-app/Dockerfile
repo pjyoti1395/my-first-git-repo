@@ -11,7 +11,8 @@
  COPY app.py .
  
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir flask
+
 
 
 # Expose port
