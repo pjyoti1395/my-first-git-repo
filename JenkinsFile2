@@ -7,7 +7,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building from DEVELOPMENT branch"
-                sh 'mvn clean install'
+                dir('maven-project') {
+                  sh 'ls -l'
+                  sh 'mvn clean install'
+                }
             }
         }
         stage('Deploy to Staging') {
