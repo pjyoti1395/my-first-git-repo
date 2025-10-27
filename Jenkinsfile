@@ -4,6 +4,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
+        echo "This is a demo for multibranch pipeline"
         echo "📦 Checking out source code..."
         checkout scm
       }
