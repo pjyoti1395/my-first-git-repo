@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+               git branch: 'main', url: 'https://github.com/pjyoti1395/my-first-git-repo.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo "Building the project..."
+                sh 'ls -lR'
+            }
+        }
+    }
+}
+
