@@ -1,0 +1,2 @@
+Hello j.txt ..
+This is october 28th !!!  what a wonderful day to start with devops !! 
